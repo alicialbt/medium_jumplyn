@@ -5,6 +5,7 @@ block content
         ul
             each val in articles
                 li= val.title
+                    a(href='/medium/article/:article_id') Supprimer
 
         fieldset
             form(action='/medium/add', method='post')
