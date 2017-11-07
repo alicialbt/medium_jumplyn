@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    h1 Articles Medium
+        ul
+            each val in articles
+                li= val.title
+
+        fieldset
+            form(action='/medium/add', method='post')
+                input.ghost-input(name='title', id='title', type='text', placeholder='Title', required='')
+                input.ghost-input(name='article', id='article', type='text', placeholder='Article', required='')
+                input.ghost-button(type='submit', value='Publier')
