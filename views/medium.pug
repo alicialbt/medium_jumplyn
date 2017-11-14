@@ -2,10 +2,12 @@ extends layout
 
 block content
     h1 Articles Medium
-        ul
-            each val in articles
-                li= val.title
-                    a(href='/medium/article/:article_id') Supprimer
+        if articles
+            ul
+                each val in articles
+                    li= val.article_title
+                        a(href='/medium/article/' + val._id + '') Lire l'article
+                        a(href='/medium/delete/' + val._id + '') Supprimer
 
         fieldset
             form(action='/medium/add', method='post')

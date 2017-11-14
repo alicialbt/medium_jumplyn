@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var cookieSession = require('cookie-session');
 var MongoClient = require('mongodb').MongoClient;
+var mongo = require('mongodb');
 
 var urlEncodedParser = bodyParser.urlencoded({extended: false});
 
@@ -18,11 +19,17 @@ MongoClient.connect("mongodb://localhost/medium_db", function(err, db) {
             res.render('index', {title: 'Medium'});
         })
         .get('/medium', function (req, res) {
-            res.render('medium', {articles: req.session.article})
+            db.collection("articles").find().toArray(function (err, result) {
+                if (err) {
+                    console.error('Find failed', err);
+                } else {
+                    res.render('medium', {articles: result})
+                }
+            });
         })
         .post('/medium/add', urlEncodedParser, function (req, res) {
             if (req.body.article) {
-                req.session.article.push(req.body);
+                //req.session.article.push(req.body);
                 article_object = req.body;
                 var newObj = {
                     article_title: article_object.title,
@@ -35,11 +42,23 @@ MongoClient.connect("mongodb://localhost/medium_db", function(err, db) {
             }
             res.redirect('/medium');
         })
-        .get('/medium/article/:article_id', function (req, res) {
-            if (req.params.article_id) {
-                req.session.article.splice(req.params.article_id, 1)
-            }
+        .get('/medium/delete/:article_id', function (req, res) {
+            var o_id = new mongo.ObjectID(req.params.article_id);
+            db.collection("articles").remove({ "_id": o_id}, null, function (error, reslt) {
+                if (error) throw error;
+                console.log("Le document a été supprimé");
+            });
             res.redirect('/medium');
+        })
+        .get('/medium/article/:article_id', function (req, res) {
+            var o_id = new mongo.ObjectID(req.params.article_id);
+            db.collection("articles").findOne({"_id": o_id}, function (err, result) {
+                if (err) {
+                    console.error('Find failed', err);
+                } else {
+                    res.render('article', {article: result})
+                }
+            });
         })
         //gérer les erreurs 404
         .use(function (req, res, next) {
