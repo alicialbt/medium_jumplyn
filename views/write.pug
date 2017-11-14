@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    .profile-page
+       if (article.article_content)
+           fieldset
+               form(action='/medium/update_article/'+ article._id + '', method='post')
+                   input.ghost-input(name='title', id='title', type='text', value= article.article_title, required='')
+                   input.ghost-input(name='article', id='article', type='text', value= article.article_content, required='')
+                   input.ghost-button(type='submit', value='Publier')
+
+       else
+           fieldset
+               form(action='/medium/update_article/' + article._id + '', method='post')
+                   input.ghost-input(name='title', id='title', type='text', placeholder='Title', required='')
+                   input.ghost-input(name='article', id='article', type='text', placeholder='Article', required='')
+                   input.ghost-button(type='submit', value='Publier')
+
+
+       fieldset
+           form(action='/medium', method='get')
+               input.ghost-button(type='submit', value='Retour à la liste des articles')

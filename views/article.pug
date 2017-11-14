@@ -1,10 +1,15 @@
 extends layout
 
 block content
-    if article
-        h1= article.article_title
-            p= article.article_content
+    .profile-page
+        if article
+            h1= article.article_title
+                p= article.article_content
 
-        fieldset
-            form(action='/medium', method='get')
-                input.ghost-button(type='submit', value='Retour à la liste des articles')
+            fieldset
+                form(action='/medium/write/' + article._id + '', method='get')
+                    input.ghost-button(type='submit', value='Modifier l\'article')
+
+            fieldset
+                form(action='/medium', method='get')
+                    input.ghost-button(type='submit', value='Retour à la liste des articles')

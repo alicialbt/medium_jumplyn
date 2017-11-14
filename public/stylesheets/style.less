@@ -1,0 +1,189 @@
+
+// Copyright 2012 The Obvious Corporation.
+
+@column-margin: 9px;
+@link-color: rgb(78, 78, 78);
+@link-hover-color: rgb(160, 160, 160);
+
+body {
+  font-family: helvetica, arial, sans-serif;
+  margin: 0 0 0 55px;
+
+  h1 {
+    height: 55px;
+    line-height: 55px;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 700;
+    padding-left: 30px;
+  }
+
+  p {
+    font-size: 11px;
+  }
+}
+
+.profile-page {
+  margin: 0 0 0 55px;
+  width: auto;
+  font-family: helvetica, arial, sans-serif;
+  line-height: 1.2em;
+
+  .profile-left {
+    width: 925px;
+    float: left;
+
+    h1 {
+      height: 55px;
+      line-height: 55px;
+      text-transform: uppercase;
+      font-size: 15px;
+      font-weight: 700;
+      padding-left: 30px;
+    }
+
+    .profile-details {
+      background-color: rgb(47, 47, 47);
+      padding: 47px 37px;
+      position: relative;
+
+      .profile-settings-link {
+        position: absolute;
+        width: 48px;
+        height: 48px;
+        right: 37px;
+        top: 22px;
+        text-indent: 1000px;
+        overflow: hidden;
+        background: url(/img/placeholder-gray.png) no-repeat center center;
+      }
+
+      .profile-image {
+        float: left;
+        margin-right: 47px;
+
+        img {
+          width: 128px;
+          height: 128px;
+        }
+      }
+
+      .profile-name {
+        font-family: georgia, "Times New Roman", serif;
+        font-size: 32px;
+        font-style: italic;
+        font-weight: 400;
+        color: white;
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
+        text-transform: capitalize;
+      }
+
+      .profile-bio {
+        margin-left: 175px; // = 128 + 47
+        font-size: 16px;
+        line-height: 1.2em;
+        font-weight: 400;
+        color: rgb(224, 224, 224);
+      }
+    }
+
+    .profile-stats {
+      height: 66px;
+      line-height: 66px;
+      padding-left: 28px;
+      border: 1px solid rgb(211, 211, 211);
+      border-top: none;
+      background: rgb(245, 245, 245);
+
+      .profile-stats-label {
+        float: left;
+        height: 66px;
+        line-height: 66px;
+        text-transform: uppercase;
+        font-size: 15px;
+        font-weight: 700;
+        color: rgb(77, 77, 77);
+      }
+
+      .profile-stats-item {
+        width: 139px;
+        height: 66px;
+        line-height: 66px;
+        border-left: 1px solid rgb(211, 211, 211);
+        float: right;
+        text-align: center;
+        font-family: georgia, "Times New Roman", serif;
+        font-size: 14px;
+        font-weight: 700;
+        color: rgb(153, 153, 153);
+        background: transparent url(/img/placeholder-gray.png) no-repeat center 10px;
+        padding-top: 16px;
+      }
+    }
+
+    .profile-posts {
+      border: 1px solid rgb(211, 211, 211);
+      border-top: none;
+      background: white;
+
+      .profile-posts-label {
+        float: left;
+        margin-left: 28px;
+        height: 66px;
+        line-height: 66px;
+        text-transform: uppercase;
+        font-size: 15px;
+        font-weight: 700;
+        color: rgb(77, 77, 77);
+      }
+
+      // TODO(sho): For now, we're just calling the homepage template directly, which means
+      // that we get some .home-XXX styles in our layout. Once we move that to a common place
+      // we will fix this.
+      .home-post-summary {
+        padding: 16px 28px;
+        border-top: 1px solid rgb(244, 244, 244);
+
+        .home-post-collection-image {
+          margin-bottom: 0;
+
+          img {
+            border: 1px solid rgb(240, 240, 240);
+          }
+        }
+      }
+    }
+  }
+
+  .profile-right {
+    float: left;
+    margin-left: 13px;
+    width: 220px;
+
+    h1 {
+      width: 220px;
+      line-height: 55px;
+      height: 60px;
+      padding-left: 9px;
+      border-bottom: 5px solid rgb(42, 42, 42);
+      text-transform: uppercase;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .profile-containers {
+      border-top: none;
+      border: 1px solid rgb(211, 211, 211);
+      background: white;
+      width: 220px;
+    }
+  }
+
+  a {
+    color: @link-color;
+    font-weight: 600;
+    &:hover {
+      color: @link-hover-color;
+    }
+  }
+}
