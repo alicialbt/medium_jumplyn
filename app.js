@@ -8,6 +8,8 @@ var urlEncodedParser = bodyParser.urlencoded({extended: false});
 
 var app = express();
 
+app.use(express.static('./public'));
+
 MongoClient.connect("mongodb://localhost/medium_db", function(err, db) {
     if (err) return funcCallback(err);
     console.log("Connecté à la base de données " + db.name);
@@ -15,7 +17,6 @@ MongoClient.connect("mongodb://localhost/medium_db", function(err, db) {
 
     app.set('view engine', 'pug')
         .set("views", path.join(__dirname, "views"))
-        .use("/static", express.static(path.join(__dirname, "public")))
         .get('/', function (req, res) {
             res.render('index', {title: 'Medium'});
         })

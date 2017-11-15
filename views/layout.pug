@@ -1,8 +1,33 @@
 doctype html
 html
   head
-    title= title
-    link(rel='stylesheet', href='/static/stylesheets/style.css')
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    title Medium 4 Jumplyn
+    link(href='/stylesheets/bootstrap.min.css', rel='stylesheet')
+    // Fonts
+    link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css?family=Righteous', rel='stylesheet')
+    // Custom styles for this template
+    link(href='/stylesheets/mediumish.css', rel='stylesheet')
+    // Scripts
+    script(src='/scripts/jquery.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js', integrity='sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb', crossorigin='anonymous')
+    script(src='/scripts/bootstrap.min.js')
+    script(src='/scripts/ie10-viewport-bug-workaround.js')
   body
+    nav.navbar.navbar-toggleable-md.navbar-light.bg-white.fixed-top.mediumnavigation
+      button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarsExampleDefault', aria-controls='navbarsExampleDefault', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      .container
+        a.navbar-brand(href='/medium/')
+          li.nav-item.active
+              | Home
+              span.sr-only (current)
+        #navbarsExampleDefault.collapse.navbar-collapse
+          ul.navbar-nav.ml-auto
+            li.nav-item.active
+              a.nav-link(href='/medium/create_article')
+                | Creer
+                span.sr-only (current)
     block content
-
