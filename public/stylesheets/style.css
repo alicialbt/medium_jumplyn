@@ -154,3 +154,7 @@ body p {
 .profile-page a:hover {
   color: #a0a0a0;
 }
+
+#invisible {
+  display:none;
+}

@@ -4,7 +4,12 @@ block content
     .profile-page
         if article
             h1= article.article_title
-                p= article.article_content
+            p#invisible=article.article_content
+            #log
+              h3 Content
+            script(src='https://code.jquery.com/jquery-3.2.1.min.js')
+            script
+             include articlescript.js
 
             fieldset
                 form(action='/medium/write/' + article._id + '', method='get')
