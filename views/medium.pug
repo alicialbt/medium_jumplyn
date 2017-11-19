@@ -13,10 +13,16 @@ block content
                     each val in articles
                         .card
                             .row
+                                .col-md-5.wrapthumbnail
+                                    a(href='/medium/article/' + val._id + '')
+                                        .thumbnail(style='background-image:url(https://jumplyn.com/img/icons/jumplyn-logo-green.png);')
                                 .col-md-7
                                     .card-block
                                         h2.card-title
                                             a(href='/medium/article/' + val._id + '') #{val.article_title}
+                                        h4.card-text
+                                            if val.article_content
+                                                | #{val.article_content.substr(0,200)+' ...'}
                                         .metafooter
                                             .wrapfooter
                                                 span.post-read-more
