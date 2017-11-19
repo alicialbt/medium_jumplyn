@@ -4,6 +4,8 @@ Copyright:WowThemes.net,https://www.wowthemes.net,WOW DEVELOPMENT,Bucharest
 Version:1.0.0
 License:https://www.wowfreebies.net/page/license
 */
+#invisible {display:none;}
+
 body {
 	padding-top:5rem;
 }
