@@ -396,7 +396,7 @@ ul.tags li a:hover {
 .form-control:-ms-input-placeholder {
 	color: rgba(0,0,0,.5);
 }
-.form-control::-ms-input-placeholder {
+.form-control:-ms-input-placeholder {
 	color: rgba(0,0,0,.5);
 }
 .authorpage h1 {
