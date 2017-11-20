@@ -7,7 +7,7 @@ block content
         section.featured-posts
             .section-title
                 h2
-                    span Featured
+                    span Articles
             .card-columns.listfeaturedtag
                 if articles
                     each val in articles
@@ -19,10 +19,10 @@ block content
                                 .col-md-7
                                     .card-block
                                         h2.card-title
-                                            a(href='/medium/article/' + val._id + '') #{val.article_title}
+                                            a(href='/medium/article/' + val._id + '') !{val.article_title}
                                         h4.card-text
                                             if val.article_content
-                                                | #{val.article_content.substr(0,200)+' ...'}
+                                                | #{val.article_content.replace(/<(?:.|\n)*?>/gm, '').substr(0,200)+' ...'}
                                         .metafooter
                                             .wrapfooter
                                                 span.post-read-more

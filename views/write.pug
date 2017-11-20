@@ -2,31 +2,27 @@ extends layout
 
 block content
     link(href='/stylesheets/medium-editor.css', rel='stylesheet')
+    script(src='/scripts/medium-editor.js')
     .container
         .row
+            .col-md-2.col-xs-12
+                .share
+                    p
+                        a.btn.follow(type='submit', value='Publier', onclick='myFunction()') Publier
             .col-md-8.col-md-offset-2.col-xs-12
                  if (article.article_content)
                      fieldset
                          .editable
-                            h1.posttitle(id='title') #{article.article_title}
-                            div(id='article', tabindex='1')
-                                .article-post #{article.article_content}
-                         form(action='/medium/update_article/'+ article._id + '', method='post', id='formid')
-                             input.ghost-input(name='title', id='title', type='text' , required='')
-                             textarea.ghost-input(name='article', id='article', type='text', required='')
-                             input.ghost-button(type='submit', value='Publier', onclick='myFunction()')
-
+                            h1.posttitle(id='title') !{article.article_title}
+                            div(id='article', tabindex='1') !{article.article_content}
                  else
                      fieldset
                          .editable
-                         h1.posttitle(id='title') Title
-                         div(id='article', tabindex='1')
-                             .article-post Type Here
-                         form(action='/medium/update_article/' + article._id + '', method='post', id='formid')
-                             input.ghost-input(name='title', id='title', type='text', placeholder='Title', required='')
-                             input.ghost-input(name='article', id='article', type='text', placeholder='Article', required='')
-                             input.ghost-button(type='submit', value='Publier', onclick='myFunction()')
+                             h1.posttitle(id='title') Title
+                             div(id='article', tabindex='1')
+                                 .article-post Type Here
 
-                 script
-                  include medium-editor.js
-                  include scripts.js
+                 form(action='/medium/update_article/' + article._id + '', method='post', id='formid')
+                     input.ghost-input(name='title', id='title', type='text' , required='')
+                     input.ghost-input(name='article', id='article', type='text', required='')
+                 script(src='/scripts/medium-editor-properties.js')

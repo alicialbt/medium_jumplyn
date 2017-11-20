@@ -1,14 +1,9 @@
 var myFunction = function() {
-var titre = document.getElementById("title").innerHTML;
-var data = document.getElementById("article").innerHTML;
-document.forms["formid"].title.value += titre;
-document.forms["formid"].article.value += data;
-alert(document.forms["formid"].article.value);
-document.getElementById("formid").submit();
-}
-
-var myAlert = function() {
-  alert('YOUPIE')
+    var titre = document.getElementById("title").innerHTML;
+    var data = document.getElementById("article").innerHTML;
+    document.forms["formid"].title.value += titre;
+    document.forms["formid"].article.value += data;
+    document.getElementById("formid").submit();
 }
 
 var editor = new MediumEditor('.editable', {
