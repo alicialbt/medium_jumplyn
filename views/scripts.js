@@ -1,6 +1,6 @@
 var myFunction = function() {
-var titre = document.getElementById("titre").innerHTML;
-var data = document.getElementById("data").innerHTML;
+var titre = document.getElementById("title").innerHTML;
+var data = document.getElementById("article").innerHTML;
 document.forms["formid"].title.value += titre;
 document.forms["formid"].article.value += data;
 alert(document.forms["formid"].article.value);

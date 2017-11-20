@@ -6,6 +6,8 @@ License:https://www.wowfreebies.net/page/license
 */
 #invisible {display:none;}
 
+.ghost-input {display:none;}
+
 body {
 	padding-top:5rem;
 }
